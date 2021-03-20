@@ -1,6 +1,6 @@
 import React from "react";
-import AddNotes from './AddNotes'
-
+import AddNotes from "./AddNotes";
+import CardNotes from "./CardNotes";
 
 const Home = () => {
   return (
@@ -8,14 +8,19 @@ const Home = () => {
       <div id="content">
         <div className="container">
           <div className="d-flex justify-content-between">
-            <div className="d-flex btn-projects">
+            <div className="btn-projects">
               {/* cantidad de botones por tipo de proyectos */}
-              <button className="btn px-4 py-1 mx-2">All</button>
-              <button className="btn mx-2">Projects</button>
+              <button className="btn mx-2 px-4">All</button>
+              <button className="btn mx-2 px-4">Projects</button>
             </div>
             <div className="d-flex">
-                <AddNotes />
+              <AddNotes />
             </div>
+          </div>
+          <div className="row">
+            <CardNotes />
+            <CardNotes />
+            <CardNotes />
           </div>
         </div>
       </div>
