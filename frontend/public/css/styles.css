@@ -56,7 +56,7 @@ a:focus {
 #sidebar {
     width: 250px;
     position: fixed;
-    top: 59px;
+    top: 62px;
     left: 0;
     height: 100vh;
     z-index: 999;
@@ -69,43 +69,44 @@ a:focus {
     margin-left: -250px;
 }
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: var(--violetaOscuro);
+
+.sidebar-menu {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--violetaOscuro);
 }
 
-#sidebar ul {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul li {
+.sidebar-menu li {
     padding: 10px 10px;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
     transition: all .2s;
+    margin-left: 10px;
 }
 
-#sidebar ul li:hover {
+.sidebar-menu li:hover {
     background: var(--violetaOscuro);
+    margin-left: 15px;
+    border-left: 6px solid white;
 }
 
-#sidebar ul li p {
+.sidebar-menu li p {
     display: inline;
     font-size: 1em;
     color: var(--blanco);
     padding-left: 40px;
 }
 
-#sidebar ul li a {
+.sidebar-menu li a {
     text-decoration: none;
 }
 
-#sidebar ul li i {
+.sidebar-menu li i {
     display: inline;
     padding-top: 10px;
     color: white;
 }
 
-#sidebar ul li.active>a,
+.sidebar-menu li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
@@ -139,7 +140,7 @@ a.article:hover {
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
-    top: 50px;
+    top: 40px;
     right: 0;
     background: var(--blanco);
 }
@@ -217,4 +218,23 @@ a.article:hover {
     transition: all 0.2s;
     background: var(--violetaOscuro);
     color: white;
+}
+
+.text-violeta-claro {
+    color: var(--violetaClaro);
+}
+
+.bg-violeta-claro {
+    background: var(--violetaClaro);
+}
+
+.bg-violeta-oscuro {
+    background: var(--violetaOscuro);
+}
+
+.userData img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid var(--violetaClaro);
 }

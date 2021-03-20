@@ -7,52 +7,81 @@ const Header = () => {
     <React.Fragment>
       <div className="wrapper">
         <nav id="sidebar">
-          <ul className="list-unstyled">
+          <div className="userData bg-violeta-oscuro pt-3">
+            <div className="d-flex justify-content-center">
+              <img src="https://picsum.photos/200" className="img-fluid" />
+            </div>
+            <div className="d-flex justify-content-center py-2">
+              <h5 className="text-capitalize">leonardo peña</h5>
+            </div>
+          </div>
+          <ul className="list-unstyled m-2 sidebar-menu">
+            <li>
+              <Link>
+                <i className="fas fa-user fa-lg"></i>
+                <p>Perfil</p>
+              </Link>
+            </li>
             <li>
               <Link to="/">
-                <i className="fas fa-th-large"></i>
-                <p>Overview</p>
-                <span></span>
+                <i className="far fa-sticky-note fa-lg"></i>
+                <p>Inicio</p>
               </Link>
             </li>
             <li>
               <Link>
-                <i className="fas fa-tasks"></i>
-                <p>Task</p>
+                <i className="fas fa-list fa-lg"></i>
+                <p>Tareas</p>
               </Link>
             </li>
             <li>
               <Link>
-                <i className="fas fa-file-alt"></i>
-                <p>Document</p>
-              </Link>
-            </li>
-            <li>
-              <Link>
-                <i className="fas fa-headset text-white"></i>
-                <p>Support</p>
+                <i className="fas fa-cog fa-lg"></i>
+                <p>Configuración</p>
               </Link>
             </li>
           </ul>
+          <ul className="list-unstyled pt-3">
+            <li className="mx-4">
+              <Link className="d-flex text-decoration-none">
+                <span></span>
+                <p className="mx-4 text-white">Proyectos</p>
+              </Link>
+            </li>
+            <li className="mx-4">
+              <Link className="d-flex text-decoration-none">
+                <span></span>
+                <p className="mx-4 text-white">Trabajo</p>
+              </Link>
+            </li>
+            <li className="mx-4">
+              <Link className="d-flex text-decoration-none">
+                <span></span>
+                <p className="mx-4 text-white">Personal</p>
+              </Link>
+            </li>
+          </ul>
+          <footer className="">
+            <div className="d-flex justify-content-center mt-4">
+              <p className="text-xs">
+                Copyright <i className="far fa-copyright fa-xs mx-1"></i>
+                2021 | Leonardo Peña Fuentes
+              </p>
+            </div>
+          </footer>
         </nav>
-
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-white bg-white fixed-top">
           <div className="container-fluid">
             <div className="navbar-brand">
               <div className="d-flex">
-                <img
-                  src="https://picsum.photos/200"
-                  className="img-fluid rounded-circle"
-                  width="45"
-                  height="45"
-                />
                 <div className="user-data">
                   <div className="d-flex align-items-center">
-                    <p className="mx-2 my-2">Hello Peter!</p>
-                    <i className="far fa-bell fa-md"></i>
-                    <span className="badge bg-danger rounded-circle px-1 py-1 mb-3">
-                      {" "}
-                    </span>
+                    <button className="btn bg-white border-0">
+                      <i className="far fa-bell fa-lg"></i>
+                      <span className="badge bg-danger rounded-circle px-1 py-1 mb-2">
+                        {" "}
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -66,13 +95,13 @@ const Header = () => {
                 <input
                   type="text"
                   className="form-control form-control-sm border-0"
-                  placeholder="Search"
+                  placeholder="Buscar"
                 />
               </div>
               <button
                 type="button"
                 id="sidebarCollapse"
-                className="btn btn-light shadow"
+                className="btn btn-white shadow-sm"
               >
                 <i className="fas fa-bars fa-lg"></i>
               </button>
