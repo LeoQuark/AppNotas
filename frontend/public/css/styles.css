@@ -76,11 +76,11 @@ a:focus {
 }
 
 .sidebar-menu li {
-    padding: 10px 10px;
+    padding: 10px 14px;
     border-top-right-radius: .5em;
     border-bottom-right-radius: .5em;
     transition: all .2s;
-    margin-left: 10px;
+    margin: 0px 10px;
 }
 
 .sidebar-menu li:hover {
@@ -136,7 +136,6 @@ a.article:hover {
 
 #content {
     width: calc(100% - 250px);
-    padding: 40px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
@@ -188,6 +187,11 @@ a.article:hover {
 .text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+}
+
+.text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
 }
 
 
