@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-const passwordView = (view) =>
-  view ? <i className="far fa-eye-slash"></i> : <i className="far fa-eye"></i>;
 
 const Sign = () => {
   const [signIn, setSignIn] = useState(false);
 
-  const [view, setView] = useState(false);
-  console.log(view);
   return (
     <React.Fragment>
       <div className="container-fluid bg-violeta-claro vh-100">
@@ -74,17 +68,14 @@ const Sign = () => {
                       </label>
                       <div className="input-group">
                         <input
-                          type="text"
+                          type="password"
                           name="password"
                           id="passwordId"
                           className="form-control form-control-sm border-end-0"
                           placeholder=""
                         />
-                        <div
-                          className="input-group-text btn border border-start-0"
-                          onClick={() => setView(!view)}
-                        >
-                          {passwordView()}
+                        <div className="input-group-text btn border border-start-0">
+                          <i className="far fa-eye-slash"></i>
                         </div>
                       </div>
                     </div>

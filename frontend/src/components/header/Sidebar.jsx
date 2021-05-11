@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 // context
 import UserContext from "../context/User/UserContext";
@@ -97,18 +97,18 @@ const Sidebar = () => {
   );
 };
 
-const Button = styled.button`
-  background: #8784d9;
-  color: white;
-  padding: 8px;
-  border: 1px solid white;
-  border-radius: 0.2em;
-  transition: all 0.1s;
+// const Button = styled.button`
+//   background: #8784d9;
+//   color: white;
+//   padding: 8px;
+//   border: 1px solid white;
+//   border-radius: 0.2em;
+//   transition: all 0.1s;
 
-  :hover {
-    color: #8784d9;
-    background: white;
-  }
-`;
+//   :hover {
+//     color: #8784d9;
+//     background: white;
+//   }
+// `;
 
 export default Sidebar;
