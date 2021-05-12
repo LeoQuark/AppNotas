@@ -1,27 +1,34 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
 import morgan from "morgan";
+import dotenv from "dotenv";
+import connectionDB from "./database/config.js";
 
 // import routes
-import routes from "./routes/users";
+import userRoutes from "./routes/users.js";
+
+//dotenv para emplear variables ocultas en .env
+dotenv.config();
+
+//Conectar a base de datos mongoose
+connectionDB();
 
 // middlewares
+//path.join(__dirname + "/src");
+
 const app = express();
 
-path.join(__dirname + "/src");
-
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors);
+app.use(cors());
 
 // routes
-//app.use("/api/user", userRoutes);
-routes(app);
+app.use("/api/user", userRoutes);
+//routes(app);
 
 //Se declara el puerto en el que correrá el servidor por medio de .env o asignandole por defecto el port:4000
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 //Se inicia el servidor en determinado puerto (port)
 app.listen(PORT, () => {

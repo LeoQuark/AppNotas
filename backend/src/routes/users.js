@@ -1,11 +1,12 @@
-import express from "express";
-import { login, createUser } from "../controllers/usersControllers";
+import { Router } from "express";
+const router = Router();
+import { login, createUser, getUser } from "../controllers/usersControllers.js";
 
 //Router nos brindará el soporte para peticiones POST,GET,PUSH,DELETE
-const router = express.Router();
 
 //Se crean los tipos de peticiones con su respectiva ruta y la funcion a realizar
 router.post("/login", login);
 router.post("/create", createUser);
+router.get("/getuser", getUser);
 
 export default router;
