@@ -39,4 +39,14 @@ const UserSchema = Schema({
   },
 });
 
+//Esto se usa para sobreescribir un metodo de schema de mongoose
+//Debe ser con una funcion normal --> function()
+UserSchema.methods.toJSON = function () {
+  //ocupando destructuring extraigo como variables a __v y password y con ..usuario
+  const { __v, password, ...user } = this.toObject();
+
+  //retorno todos los datos en el res.json() removiendo __v y la contraseña
+  return user;
+};
+
 export default model("User", UserSchema);
