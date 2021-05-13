@@ -13,8 +13,7 @@ dotenv.config();
 //Conectar a base de datos mongoose
 connectionDB();
 
-// middlewares
-//path.join(__dirname + "/src");
+// middlewares -> funciones que se ejecutan previo a otras
 
 const app = express();
 
@@ -28,7 +27,7 @@ app.use("/api/user", userRoutes);
 //routes(app);
 
 //Se declara el puerto en el que correrá el servidor por medio de .env o asignandole por defecto el port:4000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 //Se inicia el servidor en determinado puerto (port)
 app.listen(PORT, () => {
