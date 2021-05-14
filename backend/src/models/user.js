@@ -37,6 +37,10 @@ const UserSchema = Schema({
     type: Boolean,
     default: false,
   },
+  state: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 //Esto se usa para sobreescribir un metodo de schema de mongoose

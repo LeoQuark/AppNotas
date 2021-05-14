@@ -13,6 +13,7 @@ import {
   createUser,
   updateUser,
   getUsers,
+  deleteUser,
 } from "../controllers/usersControllers.js";
 
 //Router nos brindará el soporte para peticiones POST,GET,PUSH,DELETE
@@ -49,6 +50,16 @@ router.put(
 );
 
 router.get("/get-all", getUsers);
+
+router.delete(
+  "/delete/:id",
+  [
+    check("id", "No es un id valido").isMongoId(),
+    check("id").custom(existUserForId),
+    validarCampos,
+  ],
+  deleteUser
+);
 
 router.post("/login", login);
 

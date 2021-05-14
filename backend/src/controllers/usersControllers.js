@@ -7,7 +7,7 @@ import bcryptjs from "bcryptjs";
 export const createUser = async (req, res) => {
   try {
     //Valores obtenidos del req.body
-    const { name, email, password, rol } = req.body;
+    const { name, email, password, rol, state, google } = req.body;
 
     //Crea nueva instancia del modelo schema users.js pasandole un objeto con los datos del req.body
     const user = new User({
@@ -15,6 +15,8 @@ export const createUser = async (req, res) => {
       email,
       password,
       rol,
+      state,
+      google,
     });
 
     //Encriptar la contraseña
@@ -71,10 +73,40 @@ export const getUsers = async (req, res) => {
     //url example --> localhost:4000/api/user/get-all?desde=5&limite=10
     const { desde = 0, limite = 5 } = req.query;
 
-    //Busca todos los usuarios del schema user con limite 2
-    const user = await User.find().skip(Number(desde)).limit(Number(limite));
+    //query para contar los usuarios con el state = true, con la finalidad de no mostrarlos en el momento de realizar la peticion (en caso de que state=false), porque no es recomendable eliminarlo del todo de nuestra base de datos, es solo ocultarlo
+    const query = { state: true };
+
+    //esto para realizar promesas que tendrán un tiempo de respuesta debido al uso de "await", para que todas las promesas se hagan de manera simultanea ahorrando tiempo en la consulta
+    const [totalUsuarios, usuarios] = await Promise.all([
+      //Couenta todos los usuarios que cumplan con query
+      User.countDocuments(query),
+      //Busca todos los usuarios del schema user con limite 2
+      User.find(query).skip(Number(desde)).limit(Number(limite)),
+    ]);
 
     res.json({
+      totalUsuarios,
+      usuarios,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      error,
+    });
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    //Borrar el usuario fisicamente, pero no se recomienda debido a que quizas el usuario haya modificado datos de otros usuarios o cualquier otra cosa y si lo borramos perderemos toda su informacion de todos lados
+    //const user = await User.findByIdAndDelete(id);
+
+    //En vez de borrarlo, cambiemos el state del usuario para que no nos devuelva sus datos en el response, asi mantenemos la integridad de nuestra BD
+    const user = await User.findByIdAndUpdate(id, { state: false });
+
+    res.status(200).json({
       user,
     });
   } catch (error) {
@@ -100,4 +132,4 @@ export const login = async (req, res) => {
 };
 
 //Se exportan las funciones para que sean consumidas en /src/routes/users.js
-export default { login, createUser, getUsers, updateUser };
+export default { login, createUser, getUsers, updateUser, deleteUser };
