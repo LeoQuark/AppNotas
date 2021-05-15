@@ -106,8 +106,12 @@ export const deleteUser = async (req, res) => {
     //En vez de borrarlo, cambiemos el state del usuario para que no nos devuelva sus datos en el response, asi mantenemos la integridad de nuestra BD
     const user = await User.findByIdAndUpdate(id, { state: false });
 
+    //Usuario autenticados
+    const userAuth = req.user;
+
     res.status(200).json({
       user,
+      userAuth,
     });
   } catch (error) {
     console.log(error);
@@ -117,19 +121,5 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-//Funcion sincronica para el login -> POST
-export const login = async (req, res) => {
-  try {
-    res.json({
-      msg: "si",
-    });
-  } catch (err) {
-    console.log(err);
-    res.json({
-      message: err,
-    });
-  }
-};
-
 //Se exportan las funciones para que sean consumidas en /src/routes/users.js
-export default { login, createUser, getUsers, updateUser, deleteUser };
+export default { createUser, getUsers, updateUser, deleteUser };

@@ -6,6 +6,7 @@ import connectionDB from "./database/config.js";
 
 // import routes
 import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 
 //dotenv para emplear variables ocultas en .env
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(cors());
 
 // routes
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
 //routes(app);
 
 //Se declara el puerto en el que correrá el servidor por medio de .env o asignandole por defecto el port:4000

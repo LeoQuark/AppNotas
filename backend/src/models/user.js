@@ -31,7 +31,7 @@ const UserSchema = Schema({
   rol: {
     type: String,
     required: true,
-    emun: ["AdMIN_ROLE", "USER_ROLE"],
+    emun: ["ADMIN_ROLE", "USER_ROLE", "OTHER_ROLE"],
   },
   google: {
     type: Boolean,
@@ -46,9 +46,12 @@ const UserSchema = Schema({
 //Esto se usa para sobreescribir un metodo de schema de mongoose
 //Debe ser con una funcion normal --> function()
 UserSchema.methods.toJSON = function () {
-  //ocupando destructuring extraigo como variables a __v y password y con ..usuario
-  const { __v, password, ...user } = this.toObject();
+  //ocupando destructuring extraigo como variables a __v,password y_id y con ..usuario
+  const { __v, password, _id, ...user } = this.toObject();
 
+  //Reescribo el atributo _id por uid y le asigno el mismo _id
+  // forma 1 -> const userReWrite = { uid: _id, ...user };
+  user.uid = _id;
   //retorno todos los datos en el res.json() removiendo __v y la contraseña
   return user;
 };

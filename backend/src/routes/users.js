@@ -1,15 +1,20 @@
 import { Router } from "express";
 import { check } from "express-validator";
 
+//Validaciones middleware
 import { validarCampos } from "../middlewares/validation.js";
+import { validateJwt } from "../middlewares/validate-jwt.js";
+import { isAdminRole, haveRol } from "../middlewares/validate-roles.js";
+
+//Helpers
 import {
   isRolValid,
   isEmailValid,
   existUserForId,
 } from "../helpers/db-validators.js";
 
+//Controladores de las peticiones
 import {
-  login,
   createUser,
   updateUser,
   getUsers,
@@ -54,13 +59,15 @@ router.get("/get-all", getUsers);
 router.delete(
   "/delete/:id",
   [
+    //Se pone primero el validarJwt para verificar de primera forma el jwt
+    validateJwt,
+    //isAdminRole,
+    haveRol("ADMIN_ROLE", "OTHER_ROLE"),
     check("id", "No es un id valido").isMongoId(),
     check("id").custom(existUserForId),
     validarCampos,
   ],
   deleteUser
 );
-
-router.post("/login", login);
 
 export default router;
