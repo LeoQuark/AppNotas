@@ -30,7 +30,8 @@ const UserSchema = Schema({
   },
   rol: {
     type: String,
-    required: true,
+    //required: true,
+    default: "USER_ROLE",
     emun: ["ADMIN_ROLE", "USER_ROLE", "OTHER_ROLE"],
   },
   google: {
@@ -39,7 +40,8 @@ const UserSchema = Schema({
   },
   state: {
     type: Boolean,
-    required: true,
+    //required: true,
+    default: true,
   },
 });
 

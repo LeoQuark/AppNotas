@@ -3,20 +3,24 @@ import UserContext from "./UserContext";
 import UserReducer from "./UserReducer";
 
 //Creación del estado global User, donde se hará uso de useContext y useReducer.
-const UserState = (props) => {
+export const UserState = (props) => {
   const initialState = {
-    user: {
-      name: "Leonardo Peña",
-      age: 23,
-      email: "leonardo.pfuentes@gmail.com",
-    },
-    // user: null,
+    // user: {
+    //   name: "Leonardo Peña",
+    //   age: 23,
+    //   email: "leonardo.pfuentes@gmail.com",
+    // },
+    user: {},
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
-  const getUser = async () => {
-    console.log("getUser");
+  const setUser = (datos) => {
+    // console.log(datos);
+    dispatch({
+      type: "SET_USER",
+      payload: datos,
+    });
   };
 
   //Se retorna el UserContext.Provider para que los hijos de este componente puedan acceder a los valores del state global User y sus metodos o funciones.
@@ -24,7 +28,7 @@ const UserState = (props) => {
     <UserContext.Provider
       value={{
         user: state.user,
-        getUser,
+        setUser,
       }}
     >
       {props.children}

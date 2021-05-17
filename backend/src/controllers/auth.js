@@ -11,6 +11,8 @@ export const login = async (req, res) => {
   if (!user) {
     return res.status(400).json({
       msg: "Usuario / Password no son correctos - correo",
+      status: false,
+      typeError: "email",
     });
   }
 
@@ -18,6 +20,8 @@ export const login = async (req, res) => {
   if (!user.state) {
     return res.status(400).json({
       msg: "Usuario / Password no son correctos - state: false",
+      status: false,
+      typeError: "state",
     });
   }
 
@@ -26,6 +30,8 @@ export const login = async (req, res) => {
   if (!validPassword) {
     return res.status(400).json({
       msg: "Usuario / Password no son correctos - password",
+      status: false,
+      typeError: "password",
     });
   }
 
@@ -35,18 +41,8 @@ export const login = async (req, res) => {
   res.status(200).json({
     user,
     token,
+    status: true,
   });
-
-  try {
-    res.json({
-      msg: "Login Ok",
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      error: "Hable con el administrador",
-    });
-  }
 };
 
 export default { login };

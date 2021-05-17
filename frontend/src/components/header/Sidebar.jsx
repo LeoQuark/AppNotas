@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 // import styled from "styled-components";
-
-// context
 import UserContext from "../context/User/UserContext";
 
 const Sidebar = () => {
@@ -11,6 +9,7 @@ const Sidebar = () => {
   return (
     <React.Fragment>
       <nav id="sidebar">
+        {/* Si existe un usuario en el context */}
         {user ? (
           <div>
             <div className="userData bg-violeta-oscuro pt-3">
@@ -81,7 +80,7 @@ const Sidebar = () => {
           <div className="row align-items-center vh-100">
             <div className="d-flex justify-content-center">
               <Link
-                to="/sign"
+                to="/"
                 className="bg-transparent rounded border border-white border-2 shadow w-75 text-decoration-none text-white"
               >
                 <div className="d-flex justify-content-center align-items-center my-3 mx-2">

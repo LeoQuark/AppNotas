@@ -5,20 +5,23 @@ import "bootstrap/dist/css/bootstrap.css";
 import Header from "./components/header/Header";
 import Home from "./components/Home";
 import Sign from "./components/sign/Sign";
+import UserState from "./components/context/User/UserState";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          <Header />
-          <Home />
-        </Route>
-        <Route path="/sign">
-          <Sign />
-        </Route>
-      </Switch>
-    </Router>
+    <UserState>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Sign />
+          </Route>
+          <Route path="/:id" exact>
+            <Header />
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </UserState>
   );
 }
 

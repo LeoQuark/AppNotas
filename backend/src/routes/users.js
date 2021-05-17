@@ -36,7 +36,7 @@ router.post(
     check("email", "el correo no es valido").isEmail(),
     check("email").custom(isEmailValid),
     //check buscará el elemento rol del req.body y lo pasará a la funcion dentro de custom()
-    check("rol").custom(isRolValid),
+    // check("rol").custom(isRolValid),
     validarCampos,
   ],
   createUser
