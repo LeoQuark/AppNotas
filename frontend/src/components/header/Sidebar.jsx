@@ -9,85 +9,63 @@ const Sidebar = () => {
   return (
     <React.Fragment>
       <nav id="sidebar">
-        {/* Si existe un usuario en el context */}
-        {user ? (
-          <div>
-            <div className="userData bg-violeta-oscuro pt-3">
-              <div className="d-flex justify-content-center">
-                <img src="https://picsum.photos/200" className="img-fluid" />
-              </div>
-              <div className="text-center py-1">
-                <h5 className="text-capitalizer">{user.name}</h5>
-                <p className="text-xs py-1">{user.email}</p>
-              </div>
+        {user && (
+          <div className="grid grid-rows-2 gap-2">
+            <div>
+              <ul className="sidebar-menu my-4">
+                <li>
+                  <Link>
+                    <i className="fas fa-user fa-lg"></i>
+                    <p>Perfil</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/">
+                    <i className="far fa-sticky-note fa-lg"></i>
+                    <p>Inicio</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link>
+                    <i className="fas fa-list fa-lg"></i>
+                    <p>Tareas</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link>
+                    <i className="fas fa-cog fa-lg"></i>
+                    <p>Configuración</p>
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <ul className="list-unstyled m-2 sidebar-menu">
-              <li>
-                <Link>
-                  <i className="fas fa-user fa-lg"></i>
-                  <p>Perfil</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/">
-                  <i className="far fa-sticky-note fa-lg"></i>
-                  <p>Inicio</p>
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <i className="fas fa-list fa-lg"></i>
-                  <p>Tareas</p>
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <i className="fas fa-cog fa-lg"></i>
-                  <p>Configuración</p>
-                </Link>
-              </li>
-            </ul>
-            <ul className="list-unstyled pt-3">
-              <li className="mx-4">
-                <Link className="d-flex text-decoration-none">
-                  <span></span>
-                  <p className="mx-4 text-white">Proyectos</p>
-                </Link>
-              </li>
-              <li className="mx-4">
-                <Link className="d-flex text-decoration-none">
-                  <span></span>
-                  <p className="mx-4 text-white">Trabajo</p>
-                </Link>
-              </li>
-              <li className="mx-4">
-                <Link className="d-flex text-decoration-none">
-                  <span></span>
-                  <p className="mx-4 text-white">Personal</p>
-                </Link>
-              </li>
-            </ul>
-            <footer className="">
-              <div className="d-flex justify-content-center mt-4">
-                <p className="text-xs">
-                  Copyright <i className="far fa-copyright fa-xs mx-1"></i>
-                  2021 | Leonardo Peña Fuentes
-                </p>
-              </div>
-            </footer>
-          </div>
-        ) : (
-          <div className="row align-items-center vh-100">
-            <div className="d-flex justify-content-center">
-              <Link
-                to="/"
-                className="bg-transparent rounded border border-white border-2 shadow w-75 text-decoration-none text-white"
-              >
-                <div className="d-flex justify-content-center align-items-center my-3 mx-2">
-                  <i className="fas fa-user-circle fa-2x"></i>
-                  <p className="my-auto mx-2 text-capitalize">inicia sesión</p>
-                </div>
-              </Link>
+            <div>
+              <ul className="my-4 mx-10">
+                <li className="my-4">
+                  <Link className="flex justify-start">
+                    <div className="bg-yellow-500 rounded-full w-2 h-2 my-auto"></div>
+                    <p className="text-base ml-6">Projects</p>
+                  </Link>
+                </li>
+                <li className="my-4">
+                  <Link className="flex justify-start">
+                    <div className="bg-red-600 rounded-full w-2 h-2 my-auto"></div>
+                    <p className="text-base ml-6">Business</p>
+                  </Link>
+                </li>
+                <li className="my-4">
+                  <Link className="flex justify-start">
+                    <div className="bg-green-500 rounded-full w-2 h-2 my-auto"></div>
+                    <p className="text-base ml-6">Personal</p>
+                  </Link>
+                </li>
+                <li className="my-4">
+                  <Link className="flex justify-start">
+                    <div className="">+</div>
+                    <p className="text-xs ml-6 mt-1">Agrega un categoria</p>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         )}
@@ -95,19 +73,5 @@ const Sidebar = () => {
     </React.Fragment>
   );
 };
-
-// const Button = styled.button`
-//   background: #8784d9;
-//   color: white;
-//   padding: 8px;
-//   border: 1px solid white;
-//   border-radius: 0.2em;
-//   transition: all 0.1s;
-
-//   :hover {
-//     color: #8784d9;
-//     background: white;
-//   }
-// `;
 
 export default Sidebar;

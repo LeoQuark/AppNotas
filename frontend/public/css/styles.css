@@ -29,21 +29,6 @@ a:focus {
     transition: all 0.3s;
 }
 
-.navbar {
-    padding: 10px 10px;
-    background: white;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -56,23 +41,22 @@ a:focus {
 #sidebar {
     width: 250px;
     position: fixed;
-    top: 62px;
+    top: 3.5rem;
     left: 0;
     height: 100vh;
     z-index: 100;
     background: var(--violetaClaro);
     color: #fff;
-    transition: all 0.3s;
+    transition: all 0.3s ;
 }
 
 #sidebar.active {
     margin-left: -250px;
 }
 
-
-.sidebar-menu {
-    padding-bottom: 10px;
+.sidebar-menu{
     border-bottom: 1px solid var(--violetaOscuro);
+    margin:0px 12px;
 }
 
 .sidebar-menu li {
@@ -80,7 +64,7 @@ a:focus {
     border-top-right-radius: .5em;
     border-bottom-right-radius: .5em;
     transition: all .2s;
-    margin: 0px 10px;
+    margin: 8px 10px;
 }
 
 .sidebar-menu li:hover {
@@ -139,7 +123,7 @@ a.article:hover {
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
-    top: 40px;
+    top: 3.5rem;
     right: 0;
     background: var(--blanco);
 }

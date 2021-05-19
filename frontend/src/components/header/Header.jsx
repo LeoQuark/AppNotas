@@ -18,10 +18,8 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <div className="wrapper">
-        <Navbar />
-        <Sidebar />
-      </div>
+      <Navbar />
+      <Sidebar />
     </React.Fragment>
   );
 };

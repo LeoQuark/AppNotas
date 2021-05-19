@@ -43,62 +43,59 @@ const FormSignUp = () => {
 
   return (
     <React.Fragment>
-      <form className="w-75" onSubmit={handleSubmit}>
-        <div className="d-flex justify-content-center mb-3">
-          <Img
-            src="https://picsum.photos/200"
-            alt=""
-            className="img-fluid rounded-circle w-50 h-50"
-          />
-        </div>
-        <div className="d-flex justify-content-center my-2">
-          <h3 className="text-capitalize">Crea un usuario</h3>
-        </div>
-        <div className="form-group py-2">
-          <label className="">Nombre</label>
-          <div className="input-group">
+      <div className="mx-auto w-72 bg-white">
+        <form onSubmit={handleSubmit} className="py-2">
+          <div className="pt-3">
+            <label className="block text-xs pb-1 text-uppercase">Nombre</label>
             <input
               type="text"
               name="name"
-              className="form-control form-control-sm"
-              placeholder="Nombre de usuario"
+              placeholder="nombre, avatar ... "
+              className="w-full text-sm p-2 pl-2 rounded border-0 shadow-md"
               onChange={handleInputChange}
             />
           </div>
-        </div>
-        <div className="form-group p-0 my-2">
-          <label className="">Correo</label>
-          <input
-            type="text"
-            name="email"
-            id="correoID"
-            className="form-control form-control-sm"
-            placeholder="example@gmail.com"
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-group py-2">
-          <label className="">Contraseña</label>
-          <div className="input-group">
+          <div className="pt-3">
+            <label className="block text-xs pb-1 text-uppercase">Correo</label>
+            <input
+              type="text"
+              name="email"
+              placeholder="example@gmail.com"
+              className="w-full text-sm p-2 pl-2 rounded border-0 shadow-md"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="py-4">
+            <label className="block text-xs">Contaseña</label>
             <input
               type="password"
               name="password"
-              id="passwordId"
-              className="form-control form-control-sm border-end-0"
-              placeholder="Password"
+              placeholder="password"
+              className="w-full text-sm p-2 pl-2 rounded border-0 shadow-md"
               onChange={handleInputChange}
             />
-            <div className="input-group-text btn border border-start-0">
-              <i className="far fa-eye-slash"></i>
-            </div>
           </div>
-        </div>
-        <div className="d-flex justify-content-center my-2">
-          <button type="submit" className="btn btn-success">
-            Crear cuenta
-          </button>
-        </div>
-      </form>
+          <div>
+            <label class="inline-flex items-center my-2">
+              <input
+                type="checkbox"
+                className="form-check appearance-none checked:bg-blue-300 checked:border-transparent rounded focus:border-transparent"
+                name="remember"
+                value="true"
+              />
+              <span class="ml-2 text-xs">Recordar contraseña</span>
+            </label>
+          </div>
+          <div className="flex justify-center my-4">
+            <button
+              type="submit"
+              className="bg-pink-500 rounded p-2 px-1 text-sm text-white transition duration-100 ease-in-out hover:bg-pink-600 transform hover:scale-110"
+            >
+              Crea tu cuenta
+            </button>
+          </div>
+        </form>
+      </div>
     </React.Fragment>
   );
 };

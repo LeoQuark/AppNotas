@@ -1,28 +1,46 @@
 import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { setUserSessionStorage } from "../../Utils/Commons.js";
+import {
+  setUserSessionStorage,
+  setRememberUser,
+  removeUserSessionStorage,
+  getUserSessionStorage,
+} from "../../Utils/Commons.js";
 
 const FormSignIn = () => {
   //Estados
   const history = useHistory();
   const [dataUser, setDataUser] = useState({});
+  //const [remember, setRemember] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
   const [dataError, setDataError] = useState({});
   //Funciones
 
   //Funcion para asiganar al dataUser lo que se va escribiendo en los input del form
   const handleInputChange = (event) => {
+    // if (event.target.name === "remember") {
+    //   // event.preventDefault();
+    //   setRemember(!remember);
+    // }
     setDataUser({
       ...dataUser,
       [event.target.name]: event.target.value,
     });
-    //console.log(dataUser);
+
+    console.log(dataUser);
   };
 
   //Funcion para enviar(POST) los datos del dataUser al servidor
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // if (!remember) {
+    //   console.log("no");
+    // } else {
+    //   console.log(dataUser);
+    //   setRememberUser(dataUser);
+    // }
 
     //Opciones para el fetch ---> method, headers y body(data)
     const requestOptions = {
@@ -50,7 +68,6 @@ const FormSignIn = () => {
       setDataError(datos);
     }
   };
-  //console.log(dataError);
 
   const alertError = (error) => {
     //console.log(error);
@@ -71,7 +88,55 @@ const FormSignIn = () => {
 
   return (
     <React.Fragment>
-      <form onSubmit={handleSubmit} className="w-75">
+      <div className="mx-auto w-72 bg-white">
+        <form onSubmit={handleSubmit} className="py-4">
+          <div className="pt-3">
+            <label className="block text-xs pb-1 text-uppercase">Correo</label>
+            <input
+              type="text"
+              name="email"
+              placeholder="example@gmail.com"
+              className="w-full text-sm p-2 pl-2 rounded border-0 shadow-md"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="py-6">
+            <label className="block text-xs">Contaseña</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              className="w-full text-sm p-2 pl-2 rounded border-0 shadow-md"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label className="inline-flex items-center my-2">
+              <input
+                type="checkbox"
+                className="form-check appearance-none checked:bg-blue-300 checked:border-transparent rounded focus:border-transparent"
+                name="remember"
+                onChange={handleInputChange}
+              />
+              <span className="ml-2 text-xs">Recordar contraseña</span>
+            </label>
+          </div>
+          <div className="flex justify-center my-4">
+            <button
+              type="submit"
+              className="bg-pink-500 rounded p-2 px-1 text-sm text-white transition duration-100 ease-in-out hover:bg-pink-600 transform hover:scale-110"
+            >
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+      </div>
+    </React.Fragment>
+  );
+};
+
+/*
+<form onSubmit={handleSubmit} className="w-75">
         <div className="d-flex justify-content-center mb-3">
           <Img
             src="https://picsum.photos/200"
@@ -136,20 +201,6 @@ const FormSignIn = () => {
           {errorLogin && alertError(dataError)}
         </div>
       </form>
-    </React.Fragment>
-  );
-};
-
-const Alink = styled.a`
-  color: #8784d9;
-
-  :hover {
-    color: #6763bf;
-  }
-`;
-
-const Img = styled.img`
-  border: 4px solid #6763bf;
-`;
+*/
 
 export default FormSignIn;

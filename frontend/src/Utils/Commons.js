@@ -24,9 +24,14 @@ export const removeUserSessionStorage = () => {
   sessionStorage.removeItem("user");
 };
 
+export const setRememberUser = (user) => {
+  sessionStorage.setItem("user", user);
+};
+
 export default {
   getTokenSessionStorage,
   getUserSessionStorage,
   setUserSessionStorage,
   removeUserSessionStorage,
+  setRememberUser,
 };
