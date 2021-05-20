@@ -25,7 +25,7 @@ const Sign = () => {
               <div className="row-span-1">
                 <div className="flex justify-end p-3">
                   <button
-                    className="text-pink-900 font-mono font-light"
+                    className="text-indigo-900 font-mono font-light"
                     onClick={handleSingIn}
                   >
                     {signIn ? "Create una cuenta" : "Inicia sesión"}
@@ -34,16 +34,16 @@ const Sign = () => {
               </div>
               <div className="row-start-2 row-end-6">
                 <div className="flex justify-center my-2">
-                  <i className="block fas fa-meteor fa-3x animate-bounce text-pink-600"></i>
+                  <i className="block fas fa-meteor fa-3x animate-bounce text-indigo-600"></i>
                 </div>
-                <h3 className="text-center text-3xl font-mono text-pink-900 tracking-widest">
+                <h3 className="text-center text-3xl font-mono text-indigo-900 tracking-widest">
                   App notas
                 </h3>
                 {signIn ? <FormSignIn /> : <FormSignUp />}
               </div>
             </div>
           </div>
-          <div className="col-span-2 bg-gradient-to-br from-red-300 via-pink-500 to-purple-600">
+          <div className="col-span-2 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-700">
             <div className="grid grid-rows-6 h-screen">
               <div className="row-span-1">
                 <div className="flex justify-end p-4">
@@ -72,7 +72,7 @@ const Sign = () => {
                 <div className="flex justify-center pt-12">
                   <button
                     className="text-white text-sm font-mono border-4 border-white rounded-md shadow-lg px-4 py-2
-                    transition duration-75 ease-in-out hover:bg-white hover:text-pink-500 transform hover:scale-105"
+                    transition duration-75 ease-in-out hover:bg-white hover:text-indigo-500 transform hover:scale-105"
                     onClick={handleSingIn}
                   >
                     Create un usuario

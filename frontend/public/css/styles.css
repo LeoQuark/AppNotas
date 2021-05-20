@@ -35,23 +35,20 @@ a:focus {
 
 .wrapper {
     display: flex;
-    width: 100%;
+    width: calc(100%-200px);
 }
 
 #sidebar {
-    width: 250px;
+    width: 200px;
     position: fixed;
-    top: 3.5rem;
     left: 0;
     height: 100vh;
     z-index: 100;
-    background: var(--violetaClaro);
-    color: #fff;
-    transition: all 0.3s ;
+    transition: all 0.3s ease-in-out;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -200px;
 }
 
 .sidebar-menu{
@@ -90,11 +87,6 @@ a:focus {
     color: white;
 }
 
-.sidebar-menu li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -114,18 +106,23 @@ a.article:hover {
     color: #fff !important;
 }
 
+#navbarMenu{
+    width:calc(100%-200px);
+    transition: all .3s;
+    position: absolute;
+}
+
+
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 250px);
+    width: calc(100% - 200px);
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
-    top: 3.5rem;
     right: 0;
-    background: var(--blanco);
 }
 
 #content.active {

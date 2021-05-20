@@ -75,7 +75,7 @@ const FormSignUp = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          {/* <div>
             <label class="inline-flex items-center my-2">
               <input
                 type="checkbox"
@@ -85,11 +85,11 @@ const FormSignUp = () => {
               />
               <span class="ml-2 text-xs">Recordar contraseña</span>
             </label>
-          </div>
+          </div> */}
           <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="bg-pink-500 rounded p-2 px-1 text-sm text-white transition duration-100 ease-in-out hover:bg-pink-600 transform hover:scale-110"
+              className="bg-indigo-500 rounded p-2 px-1 text-sm text-white transition duration-100 ease-in-out hover:bg-indigo-600 transform hover:scale-110"
             >
               Crea tu cuenta
             </button>

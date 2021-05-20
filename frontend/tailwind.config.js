@@ -8,6 +8,7 @@ module.exports = {
   variants: {
     extend: {
       ringWidth: ["hover", "active"],
+      animation: ["hover", "focus"],
     },
   },
   plugins: [require("@tailwindcss/forms")],

@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <Sidebar />
     </React.Fragment>
   );
